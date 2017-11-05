@@ -14,11 +14,11 @@ export function getLists(quantity) {
       let count = 0;
       for (let i = 0; i < quantity; i++) {
         const cards = [];
-        const randomQuantity = Math.floor(Math.random() * (9 - 1 + 1)) + 1;
+        const randomQuantity = 2;
         for (let ic = 0; ic < randomQuantity; ic++) {
           cards.push({
             id: count,
-            firstName: faker.name.firstName(),
+            firstName: 'abhishek',
             lastName: faker.name.lastName(),
             title: faker.name.jobTitle()
           });
@@ -26,7 +26,7 @@ export function getLists(quantity) {
         }
         lists.push({
           id: i,
-          name: faker.commerce.productName(),
+          name: 'garbage',
           cards
         });
       }

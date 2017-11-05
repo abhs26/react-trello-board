@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
-
+import SplitPane from 'react-split-pane';
 import * as ListsActions from '../../actions/lists';
 
 import CardsContainer from './Cards/CardsContainer';
@@ -42,7 +42,8 @@ export default class Board extends Component {
   }
 
   componentWillMount() {
-    this.props.getLists(10);
+    this.props.getLists(1);
+    this.props.getLists(3);
   }
 
   startScrolling(direction) {
@@ -99,23 +100,39 @@ export default class Board extends Component {
 
   render() {
     const { lists } = this.props;
+    const opacity = 1;
 
     return (
-      <div style={{ height: '100%' }}>
-        <CustomDragLayer snapToGrid={false} />
-        {lists.map((item, i) =>
-          <CardsContainer
-            key={item.id}
-            id={item.id}
-            item={item}
-            moveCard={this.moveCard}
-            moveList={this.moveList}
-            startScrolling={this.startScrolling}
-            stopScrolling={this.stopScrolling}
-            isScrolling={this.state.isScrolling}
-            x={i}
-          />
-        )}
+      <div>
+
+        <div style={{ backgroundColor: 'aliceblue' }}>
+          <SplitPane split="vertical" defaultSize="15%">
+            <div>
+              <div className="desk" style={{ opacity }}>
+                <div className="desk-head">
+                  <div className="desk-name">Automation</div>
+                </div>
+              </div>
+            </div>
+          <div style={{ height: '75%' }}>
+            <CustomDragLayer snapToGrid={false} />
+            {lists.map((item, i) =>
+              <CardsContainer
+                key={item.id}
+                id={item.id}
+                item={item}
+                moveCard={this.moveCard}
+                moveList={this.moveList}
+                startScrolling={this.startScrolling}
+                stopScrolling={this.stopScrolling}
+                isScrolling={this.state.isScrolling}
+                x={i}
+              />
+            )}
+          </div>
+        </SplitPane>
+        </div>
+
       </div>
     );
   }

@@ -12,6 +12,7 @@ import { routes } from './routes';
 import configureStore from './store/configureStore';
 
 import './assets/temp.styl';
+import style from './assets/main.css';
 
 const store = configureStore();
 const history = syncHistoryWithStore(browserHistory, store);

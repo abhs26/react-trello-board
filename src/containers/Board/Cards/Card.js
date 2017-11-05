@@ -16,45 +16,16 @@ const Card = (props) => {
     <div style={style} className="item" id={style ? item.id : null}>
       <div className="item-name">{item.title}</div>
       <div className="item-container">
-        <div className="item-avatar-wrap">
-          <img src={`https://randomuser.me/api/portraits/med/men/${item.id}.jpg`} alt="" />
-        </div>
-        <div className="item-content">
-          <div className="item-author">{`${item.firstName} ${item.lastName}`}</div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, banditos.</p>
-        </div>
-      </div>
-      <div className="item-perfomers">
-        <div className="add-perfomers">
-          <a href="#"><img src={galPng} alt="Add perfomers" /></a>
-          <div className="perfomer">
-            <img
-              src={`https://randomuser.me/api/portraits/thumb/men/${item.id + 1}.jpg`}
-              alt="Perfomer"
-            />
+        <li className="issue">
+          <i className="issue__type fa fa-check-square-o"></i>
+          <i className="issue__priority fa fa-angle-up"></i>
+          <div className="issue__assignee">
+            <img className="image" src="http://placekitten.com/g/48/48" alt={"kitten"} />
           </div>
-          <div className="perfomer">
-            <img
-              src={`https://randomuser.me/api/portraits/thumb/men/${item.id + 2}.jpg`}
-              alt="Perfomer"
-            />
-          </div>
-          <div className="perfomer">
-            <img
-              src={`https://randomuser.me/api/portraits/thumb/men/${item.id + 3}.jpg`}
-              alt="Perfomer"
-            />
-          </div>
-        </div>
-        <div className="delete-perfomers">
-          <a href="#"><img src={delPng} alt="Delete perfomers" /></a>
-          <div className="perfomer">
-            <img
-              src={`https://randomuser.me/api/portraits/thumb/men/${item.id + 4}.jpg`}
-              alt="Perfomer"
-            />
-          </div>
-        </div>
+          <div className="issue__estimate">12</div>
+          <a className="issue__number" href="#">ZUI-1328</a>
+          <p className="issue__title">Document</p>
+        </li>
       </div>
     </div>
   );

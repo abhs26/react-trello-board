@@ -19,6 +19,7 @@ const initialState = new InitialState;
 
 
 export default function lists(state = initialState, action) {
+  console.log('I am here')
   switch (action.type) {
     case GET_LISTS_START:
       return state.set('isFetching', true);
